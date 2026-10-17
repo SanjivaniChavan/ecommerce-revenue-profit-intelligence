@@ -1,131 +1,176 @@
 # E-commerce Revenue & Customer Intelligence
 
-### End-to-End Data Analytics | Python • SQL • PostgreSQL • Power BI • DAX
+**From raw transactions to actionable business decisions.**
 
-An end-to-end e-commerce analytics project designed to transform transactional sales data into actionable business insights using Python, SQL, and Power BI.
+**Python · Pandas · PostgreSQL · SQL · Power BI · DAX**
 
-The project covers data cleaning, revenue analysis, product performance, geographic sales trends, and RFM-based customer segmentation.
+[Power BI Dashboard](dashboards/Ecommerce_Revenue_Profit_Intelligence.pbix) | [SQL Analysis](sql/) | [Python Pipeline](src/)
 
-## Project Objectives
+---
 
-- Analyze revenue trends and order performance.
-- Identify top-performing products and countries.
-- Understand customer purchasing behavior.
-- Segment customers using Recency, Frequency, and Monetary (RFM) analysis.
-- Build interactive Power BI dashboards to support business decisions.
+## The Business Challenge
 
-## Technology Stack
+An e-commerce business generates thousands of transactions, but raw sales records alone cannot answer critical questions:
 
-| Technology | Purpose |
+- Which products and countries contribute the most revenue?
+- How does revenue change over time?
+- Who are the most valuable customers?
+- Which customer groups offer opportunities for retention and re-engagement?
+
+This project transforms transaction data into interactive revenue and customer intelligence dashboards.
+
+## Performance Snapshot
+
+| Metric | Dashboard Value |
+|---|---:|
+| Total Revenue | **20.48M** |
+| Total Orders | **~40K** |
+| Units Sold | **~11M** |
+| Average Order Value | **510.92** |
+| Total Customers | **~5.9K** |
+| Customer Segments | **6** |
+| Champions Share | **25.09%** |
+
+*Metrics reflect the current Power BI report. Currency labels and calculations should be validated against the source data.*
+
+## Dashboard Experience
+
+### 01 — Executive Revenue Overview
+
+A consolidated view of sales performance designed for business stakeholders.
+
+**What it reveals**
+- Monthly revenue trends and fluctuations
+- Top 10 revenue-generating products
+- Top 10 countries by revenue
+- Order volume, units sold, and average order value
+
+### 02 — Customer Segmentation & RFM Intelligence
+
+A customer analytics dashboard using **Recency, Frequency, and Monetary (RFM)** analysis.
+
+| Segment | Customers | Business Opportunity |
+|---|---:|---|
+| Champions | 1,475 | Retention and VIP engagement |
+| Loyal Customers | 787 | Loyalty and repeat purchasing |
+| Potential Loyalists | 1,841 | Conversion into loyal customers |
+| At Risk | 89 | Win-back initiatives |
+| Hibernating | 1,526 | Reactivation assessment |
+| New Customers | 160 | Second-purchase engagement |
+
+*Segment counts are based on the current dashboard and should be rechecked after data refresh.*
+
+## Analytics Architecture
+
+```text
+E-commerce Transaction Data
+           |
+           v
+    Python + Pandas
+  Cleaning & Validation
+           |
+           v
+      PostgreSQL
+   Structured Data Storage
+           |
+           v
+      SQL Analytics
+ Revenue | Product | Customer
+           |
+           v
+     RFM Segmentation
+ Recency | Frequency | Monetary
+           |
+           v
+      Power BI + DAX
+ Interactive Business Dashboards
+```
+
+## Technical Implementation
+
+| Component | Implementation |
 |---|---|
-| Python | Data cleaning, preprocessing, and analysis |
-| Pandas | Data transformation and aggregation |
-| PostgreSQL | Relational database and SQL analytics |
-| SQL | Revenue analysis, customer analytics, and advanced queries |
-| Power BI | Interactive dashboards and visualization |
-| DAX | KPI measures and customer segment calculations |
-| Git & GitHub | Version control and project documentation |
+| Data Preparation | Python and Pandas |
+| Database | PostgreSQL |
+| Analytical Queries | SQL |
+| Customer Segmentation | RFM Analysis |
+| Visualization | Power BI |
+| KPI Calculations | DAX |
+| Version Control | Git and GitHub |
 
-## Dashboard Overview
+## Business Insights
 
-### 1. Revenue Overview Dashboard
+**01. Geographic revenue concentration**
 
-An interactive dashboard providing a consolidated view of e-commerce sales performance.
+The United Kingdom dominates the country revenue chart, highlighting the importance of understanding market concentration.
 
-**Key Performance Indicators**
-- Total Revenue: 20.48M
-- Total Orders: Approximately 40K
-- Units Sold: Approximately 11M
-- Average Order Value: 510.92
+**02. High-value customer retention**
 
-**Visualizations**
-- Monthly Revenue Trend
-- Top 10 Products by Revenue
-- Top 10 Countries by Revenue
+Champions represent approximately 25% of customers and lead revenue contribution among the RFM segments.
 
-### 2. Customer Segmentation & RFM Analysis
+**03. Customer growth opportunity**
 
-A customer intelligence dashboard built around RFM segmentation.
+Potential Loyalists form the largest customer segment, making them a promising group for testing loyalty and repeat-purchase initiatives.
 
-**Key Metrics**
-- Total Customers: Approximately 5.9K
-- Customer Segments: 6
-- Champions Percentage: 25.09%
+**04. Revenue variability**
 
-**Customer Segments**
-- Champions
-- Loyal Customers
-- Potential Loyalists
-- At Risk
-- Hibernating
-- New Customers
+Monthly revenue fluctuates significantly, suggesting the need to investigate seasonality, purchasing patterns, and reporting-period effects.
 
-**Visualizations**
-- Customer Distribution by RFM Segment
-- Average Customer Monetary Value by Segment
-- Revenue Contribution by Customer Segment
-- Interactive Customer Segment Filter
+*These findings describe patterns in the data; they do not establish the causes of those patterns.*
 
-## Analytics Workflow
-
-1. **Data Preparation:** Clean and transform transactional sales records using Python.
-2. **Database Management:** Organize analytical data using PostgreSQL.
-3. **SQL Analysis:** Analyze revenue, product performance, customer behavior, and sales trends.
-4. **RFM Segmentation:** Classify customers using purchasing recency, frequency, and monetary value.
-5. **Power BI Reporting:** Develop interactive dashboards with DAX measures and customer filters.
-
-## Preliminary Business Insights
-
-- Champions represent approximately 25% of customers, making them an important segment for retention analysis.
-- Champions contribute the largest revenue share among the six customer segments.
-- Revenue performance varies across products, countries, and monthly periods.
-- RFM segmentation provides a framework for targeted retention and re-engagement strategies.
-
-## Repository Structure
+## Project Structure
 
 ```text
 ecommerce-revenue-profit-intelligence/
-|
-|-- dashboards/
-|   |-- Ecommerce_Revenue_Profit_Intelligence.pbix
-|
-|-- sql/
-|   |-- schema.sql
-|   |-- revenue_analysis.sql
-|   |-- customer_analysis.sql
-|   |-- advanced_analytics.sql
-|
-|-- src/
-|   |-- data_cleaning.py
-|   |-- db_connection.py
-|   |-- import_data.py
-|   |-- inspect_data.py
-|   |-- kpi_analysis.py
-|   |-- rfm_segmentation.py
-|
-|-- README.md
-|-- requirements.txt
-|-- .gitignore
+│
+├── dashboards/
+│   └── Ecommerce_Revenue_Profit_Intelligence.pbix
+│
+├── sql/
+│   ├── schema.sql
+│   ├── revenue_analysis.sql
+│   ├── customer_analysis.sql
+│   └── advanced_analytics.sql
+│
+├── src/
+│   ├── inspect_data.py
+│   ├── data_cleaning.py
+│   ├── db_connection.py
+│   ├── import_data.py
+│   ├── kpi_analysis.py
+│   └── rfm_segmentation.py
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ## Getting Started
 
-1. Clone the repository.
-2. Create a Python virtual environment.
-3. Install dependencies using `pip install -r requirements.txt`.
-4. Configure the PostgreSQL database connection for your local environment.
-5. Review the Python and SQL scripts.
-6. Open the `.pbix` file using Power BI Desktop.
+Clone the repository:
 
-**Note:** Source datasets are excluded from the public repository. Reproducing the analysis requires access to the appropriate dataset and local database configuration.
+```bash
+git clone https://github.com/SanjivaniChavan/ecommerce-revenue-profit-intelligence.git
+cd ecommerce-revenue-profit-intelligence
+```
 
-## Future Improvements
+Install Python dependencies:
 
-- Add dashboard screenshots and detailed business recommendations.
-- Validate and document key metrics and DAX calculations.
-- Expand profitability analysis with cost data where available.
-- Improve reproducibility with sample data and automated tests.
+```bash
+pip install -r requirements.txt
+```
+
+Configure your PostgreSQL connection locally, review the Python and SQL scripts, and open the `.pbix` file in Power BI Desktop.
+
+**Data availability:** Raw and processed datasets are excluded from the public repository. Reproducing the analysis requires an appropriate source dataset and database configuration.
+
+## Future Enhancements
+
+- Add screenshots of the redesigned Power BI dashboards.
+- Validate and document KPI and DAX calculations.
+- Introduce profitability and margin analysis when cost data is available.
+- Add reproducible sample data and automated validation tests.
 
 ---
 
-**Project Focus:** Data Analytics | Business Intelligence | SQL | Python | Power BI | Customer Segmentation
+**Project Focus:** Business Intelligence · Revenue Analytics · Customer Segmentation · SQL · Python · Power BI
